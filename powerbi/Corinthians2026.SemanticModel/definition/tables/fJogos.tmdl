@@ -1,0 +1,115 @@
+table fJogos
+	lineageTag: 72fcf712-e329-53ae-8f8d-1f897239dff5
+
+	column id_jogo
+		dataType: string
+		isHidden
+		lineageTag: 4c701985-1bec-5986-8cca-d30dff4d1a1a
+		summarizeBy: none
+		sourceColumn: id_jogo
+
+	column data
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 56d95fc1-cbf5-503c-9073-5950c896e4ff
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column temporada
+		dataType: int64
+		formatString: 0
+		lineageTag: d59168d7-40f7-583f-94ba-f7e9c9e3a137
+		summarizeBy: none
+		sourceColumn: temporada
+
+	column competicao
+		dataType: string
+		lineageTag: c0210881-df95-5b73-b404-31b189fcf4fb
+		summarizeBy: none
+		sourceColumn: competicao
+
+	column adversario
+		dataType: string
+		lineageTag: 972d18cb-2672-5199-b0ba-d4b2ec9f2d72
+		summarizeBy: none
+		sourceColumn: adversario
+
+	column mando
+		dataType: string
+		lineageTag: 93356a67-49ae-54d6-8796-5fd0d349d265
+		summarizeBy: none
+		sourceColumn: mando
+
+	column gols_pro
+		dataType: int64
+		formatString: 0
+		lineageTag: 3476dba7-158b-5a20-985f-cf9e8b6ee53a
+		summarizeBy: none
+		sourceColumn: gols_pro
+
+	column gols_contra
+		dataType: int64
+		formatString: 0
+		lineageTag: 793c386b-e712-571b-a4ff-64e5df8a67bc
+		summarizeBy: none
+		sourceColumn: gols_contra
+
+	column resultado
+		dataType: string
+		lineageTag: aae8bcf7-6f48-5637-a297-fcfff8e1e3e3
+		summarizeBy: none
+		sourceColumn: resultado
+		sortByColumn: ordem_resultado
+
+	column pontos
+		dataType: int64
+		formatString: 0
+		lineageTag: a8d8426f-37e2-5083-9e2d-2d8882e87c82
+		summarizeBy: none
+		sourceColumn: pontos
+
+	column decidido_penaltis
+		dataType: string
+		lineageTag: dc38d08d-b38b-5bab-8831-b211778e7ab5
+		summarizeBy: none
+		sourceColumn: decidido_penaltis
+
+	column tecnico
+		dataType: string
+		lineageTag: 3b280993-5e55-51c9-a338-6d52e5c638eb
+		summarizeBy: none
+		sourceColumn: tecnico
+
+	column ordem_resultado
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7cc3d570-ee4c-5e88-b236-badd1155077b
+		summarizeBy: none
+		sourceColumn: ordem_resultado
+
+	column mes
+		dataType: dateTime
+		formatString: mmm/yy
+		lineageTag: 877d2584-55ee-54da-bcdf-e3683fe6a285
+		summarizeBy: none
+		sourceColumn: mes
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition fJogos = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "jogos.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Cabecalho = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Cabecalho, {{"id_jogo", type text}, {"data", type date}, {"temporada", Int64.Type}, {"competicao", type text}, {"adversario", type text}, {"mando", type text}, {"gols_pro", Int64.Type}, {"gols_contra", Int64.Type}, {"resultado", type text}, {"pontos", Int64.Type}, {"decidido_penaltis", type text}, {"tecnico", type text}}, "en-US"),
+				    Ordem = Table.AddColumn(Tipos, "ordem_resultado", each if [resultado] = "Vitória" then 1 else if [resultado] = "Empate" then 2 else 3, Int64.Type),
+				    Resultado = Table.AddColumn(Ordem, "mes", each Date.StartOfMonth([data]), type date)
+				in
+				    Resultado
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,98 @@
+table _Medidas
+	lineageTag: 77cfb107-a016-5a6c-82fb-58d627fe1312
+
+	measure Jogos = COUNTROWS(fJogos)
+		formatString: 0
+		lineageTag: f61543ef-ac2e-5a7a-95be-d5f157f181b2
+
+	measure Vitórias = IF(NOT ISBLANK([Jogos]), CALCULATE([Jogos], fJogos[resultado] = "Vitória") + 0)
+		formatString: 0
+		lineageTag: 17355f30-423b-5e0a-8bea-73e648b42ba6
+
+	measure Empates = IF(NOT ISBLANK([Jogos]), CALCULATE([Jogos], fJogos[resultado] = "Empate") + 0)
+		formatString: 0
+		lineageTag: 0981d817-80e5-56c0-97c0-46319a3776ec
+
+	measure Derrotas = IF(NOT ISBLANK([Jogos]), CALCULATE([Jogos], fJogos[resultado] = "Derrota") + 0)
+		formatString: 0
+		lineageTag: 2a9cf9bd-852e-5461-9c5e-c4e8e7086e3b
+
+	measure '% Vitórias' = DIVIDE([Vitórias], [Jogos])
+		formatString: 0.0%
+		lineageTag: ac81caa0-6062-5db5-ba4d-47ce81e4400d
+
+	measure Pontos = SUM(fJogos[pontos])
+		formatString: 0
+		lineageTag: 3ccd1911-aabd-53d9-9749-bf614581c5f8
+
+	measure Aproveitamento = DIVIDE([Pontos], 3 * [Jogos])
+		formatString: 0.0%
+		lineageTag: e56e6f22-a453-5f00-b777-35e97b68ef6c
+
+	measure 'Jogos em Casa' = IF(NOT ISBLANK([Jogos]), CALCULATE([Jogos], fJogos[mando] = "Casa") + 0)
+		formatString: 0
+		lineageTag: f70839e4-15ef-5ea3-ac93-429ff63c0d41
+
+	measure 'Vitórias em Casa' = IF(NOT ISBLANK([Jogos]), CALCULATE([Vitórias], fJogos[mando] = "Casa") + 0)
+		formatString: 0
+		lineageTag: c769d133-d718-52ef-8100-c6e935a960a8
+
+	measure '% Vitórias em Casa' = DIVIDE([Vitórias em Casa], [Jogos em Casa])
+		formatString: 0.0%
+		lineageTag: 9f01b3e2-1d22-5644-8164-645107bfa425
+
+	measure 'Jogos Fora' = IF(NOT ISBLANK([Jogos]), CALCULATE([Jogos], fJogos[mando] = "Fora") + 0)
+		formatString: 0
+		lineageTag: 8aba7bf5-81df-51b6-8670-bf2725794364
+
+	measure 'Vitórias Fora' = IF(NOT ISBLANK([Jogos]), CALCULATE([Vitórias], fJogos[mando] = "Fora") + 0)
+		formatString: 0
+		lineageTag: 05d0fb54-991f-5428-845b-e867780a8518
+
+	measure 'Empates Fora' = IF(NOT ISBLANK([Jogos]), CALCULATE([Empates], fJogos[mando] = "Fora") + 0)
+		formatString: 0
+		lineageTag: a7cb9677-4390-5061-b28a-37f072660c34
+
+	measure 'Derrotas Fora' = IF(NOT ISBLANK([Jogos]), CALCULATE([Derrotas], fJogos[mando] = "Fora") + 0)
+		formatString: 0
+		lineageTag: 916b9b3a-01d7-52ad-be27-2dcda3e530d0
+
+	measure '% Vitórias Fora' = DIVIDE([Vitórias Fora], [Jogos Fora])
+		formatString: 0.0%
+		lineageTag: 45fa8c58-47c7-5f05-914f-23640232002c
+
+	measure 'Gols Pró' = SUM(fJogos[gols_pro])
+		formatString: 0
+		lineageTag: dfaec7df-bffb-5587-8349-06ce62a8d7b0
+
+	measure 'Gols Contra' = SUM(fJogos[gols_contra])
+		formatString: 0
+		lineageTag: 5f640382-9b84-52e4-8642-a2a2540cb6af
+
+	measure 'Saldo de Gols' = [Gols Pró] - [Gols Contra]
+		formatString: +0;-0;0
+		lineageTag: 90ef5c17-1716-578b-a5f1-9526a58026a2
+
+	measure 'Gols Pró por Jogo' = DIVIDE([Gols Pró], [Jogos])
+		formatString: 0.00
+		lineageTag: f4001f4a-8f13-5365-97eb-713f6e2fd207
+
+	measure 'Gols Contra por Jogo' = DIVIDE([Gols Contra], [Jogos])
+		formatString: 0.00
+		lineageTag: 4b025804-39d6-5663-9d69-5678e7bd8280
+
+	measure 'Técnico Selecionado' = SELECTEDVALUE(dTecnicos[tecnico], "Todos os técnicos")
+		formatString: @
+		lineageTag: 1094079f-6633-52dc-a869-68c6f9640a6b
+
+	column Coluna
+		dataType: string
+		isHidden
+		lineageTag: 84d706c3-3a57-55bc-9e3b-cb2ace67f248
+		summarizeBy: none
+		sourceColumn: Coluna
+
+	partition _Medidas = m
+		mode: import
+		source = #table(type table [Coluna = text], {})
+

@@ -1,0 +1,45 @@
+table dTecnicos
+	lineageTag: a4f77c9e-bffc-58cf-aa72-fe27ff972569
+
+	column tecnico
+		dataType: string
+		lineageTag: 6f917434-4865-57fb-8e9a-d650354f1029
+		summarizeBy: none
+		sourceColumn: tecnico
+
+	column inicio
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: f9e231cd-0805-598c-a81b-8ea5703a1838
+		summarizeBy: none
+		sourceColumn: inicio
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fim
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 7c5f5f42-39d4-56bc-b748-c90234a724c8
+		summarizeBy: none
+		sourceColumn: fim
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column interino
+		dataType: string
+		lineageTag: 19e9c3cc-9db5-55b3-9915-dd0f3421d4e0
+		summarizeBy: none
+		sourceColumn: interino
+
+	partition dTecnicos = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "tecnicos.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Cabecalho = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    Resultado = Table.TransformColumnTypes(Cabecalho, {{"tecnico", type text}, {"inicio", type date}, {"fim", type date}, {"interino", type text}}, "en-US")
+				in
+				    Resultado
+
+	annotation PBI_ResultType = Table
+

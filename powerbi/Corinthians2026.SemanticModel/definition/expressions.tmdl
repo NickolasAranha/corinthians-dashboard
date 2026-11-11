@@ -1,0 +1,5 @@
+expression PastaDados = "C:\Users\Nickolas\Documents\powerbi_estudo\data\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: f15ea927-223f-57c2-8698-b27e0ea95f51
+
+	annotation PBI_ResultType = Text
+

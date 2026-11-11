@@ -1,0 +1,62 @@
+Jogos =
+COUNTROWS(fJogos)
+
+Vitórias =
+IF(NOT ISBLANK([Jogos]), CALCULATE([Jogos], fJogos[resultado] = "Vitória") + 0)
+
+Empates =
+IF(NOT ISBLANK([Jogos]), CALCULATE([Jogos], fJogos[resultado] = "Empate") + 0)
+
+Derrotas =
+IF(NOT ISBLANK([Jogos]), CALCULATE([Jogos], fJogos[resultado] = "Derrota") + 0)
+
+% Vitórias =
+DIVIDE([Vitórias], [Jogos])
+
+Pontos =
+SUM(fJogos[pontos])
+
+Aproveitamento =
+DIVIDE([Pontos], 3 * [Jogos])
+
+Jogos em Casa =
+IF(NOT ISBLANK([Jogos]), CALCULATE([Jogos], fJogos[mando] = "Casa") + 0)
+
+Vitórias em Casa =
+IF(NOT ISBLANK([Jogos]), CALCULATE([Vitórias], fJogos[mando] = "Casa") + 0)
+
+% Vitórias em Casa =
+DIVIDE([Vitórias em Casa], [Jogos em Casa])
+
+Jogos Fora =
+IF(NOT ISBLANK([Jogos]), CALCULATE([Jogos], fJogos[mando] = "Fora") + 0)
+
+Vitórias Fora =
+IF(NOT ISBLANK([Jogos]), CALCULATE([Vitórias], fJogos[mando] = "Fora") + 0)
+
+Empates Fora =
+IF(NOT ISBLANK([Jogos]), CALCULATE([Empates], fJogos[mando] = "Fora") + 0)
+
+Derrotas Fora =
+IF(NOT ISBLANK([Jogos]), CALCULATE([Derrotas], fJogos[mando] = "Fora") + 0)
+
+% Vitórias Fora =
+DIVIDE([Vitórias Fora], [Jogos Fora])
+
+Gols Pró =
+SUM(fJogos[gols_pro])
+
+Gols Contra =
+SUM(fJogos[gols_contra])
+
+Saldo de Gols =
+[Gols Pró] - [Gols Contra]
+
+Gols Pró por Jogo =
+DIVIDE([Gols Pró], [Jogos])
+
+Gols Contra por Jogo =
+DIVIDE([Gols Contra], [Jogos])
+
+Técnico Selecionado =
+SELECTEDVALUE(dTecnicos[tecnico], "Todos os técnicos")

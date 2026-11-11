@@ -1,0 +1,4 @@
+relationship e3cb812c-e0c4-51d9-a2ae-26003d9ee7a9
+	fromColumn: fJogos.tecnico
+	toColumn: dTecnicos.tecnico
+

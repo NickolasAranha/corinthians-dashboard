@@ -1,0 +1,481 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "v09",
+  "position": {
+    "x": 165,
+    "y": 156,
+    "z": 9,
+    "height": 550,
+    "width": 1097,
+    "tabOrder": 9
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fJogos"
+                    }
+                  },
+                  "Property": "data"
+                }
+              },
+              "queryRef": "fJogos.data",
+              "nativeQueryRef": "data",
+              "displayName": "Data"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fJogos"
+                    }
+                  },
+                  "Property": "competicao"
+                }
+              },
+              "queryRef": "fJogos.competicao",
+              "nativeQueryRef": "competicao",
+              "displayName": "Competição"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fJogos"
+                    }
+                  },
+                  "Property": "adversario"
+                }
+              },
+              "queryRef": "fJogos.adversario",
+              "nativeQueryRef": "adversario",
+              "displayName": "Adversário"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fJogos"
+                    }
+                  },
+                  "Property": "mando"
+                }
+              },
+              "queryRef": "fJogos.mando",
+              "nativeQueryRef": "mando",
+              "displayName": "Mando"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fJogos"
+                    }
+                  },
+                  "Property": "gols_pro"
+                }
+              },
+              "queryRef": "fJogos.gols_pro",
+              "nativeQueryRef": "gols_pro",
+              "displayName": "Gols pró"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fJogos"
+                    }
+                  },
+                  "Property": "gols_contra"
+                }
+              },
+              "queryRef": "fJogos.gols_contra",
+              "nativeQueryRef": "gols_contra",
+              "displayName": "Gols contra"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fJogos"
+                    }
+                  },
+                  "Property": "resultado"
+                }
+              },
+              "queryRef": "fJogos.resultado",
+              "nativeQueryRef": "resultado",
+              "displayName": "Resultado"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fJogos"
+                    }
+                  },
+                  "Property": "tecnico"
+                }
+              },
+              "queryRef": "fJogos.tecnico",
+              "nativeQueryRef": "tecnico",
+              "displayName": "Técnico"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fJogos"
+                    }
+                  },
+                  "Property": "decidido_penaltis"
+                }
+              },
+              "queryRef": "fJogos.decidido_penaltis",
+              "nativeQueryRef": "decidido_penaltis",
+              "displayName": "Pênaltis"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fJogos"
+                  }
+                },
+                "Property": "resultado"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "fJogos"
+                                    }
+                                  },
+                                  "Property": "resultado"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Derrota'"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#BE001E'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "fJogos"
+                                    }
+                                  },
+                                  "Property": "resultado"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Empate'"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#9A9A9A'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "fJogos"
+                                    }
+                                  },
+                                  "Property": "resultado"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Vitória'"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#1A1A1A'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "fJogos.resultado"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'JOGOS DA TEMPORADA'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1A1A1A'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "80f1c66a0322a9b97d64",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fJogos"
+              }
+            },
+            "Property": "data"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8656efa66597a9668a18",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fJogos"
+              }
+            },
+            "Property": "competicao"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "95f530974a8faccdc5d0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fJogos"
+              }
+            },
+            "Property": "adversario"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fa4dab382189b1c6e3e7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fJogos"
+              }
+            },
+            "Property": "mando"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2532e8f6030eb0853e18",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fJogos"
+              }
+            },
+            "Property": "gols_pro"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "da25f558ccd5135cfcd5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fJogos"
+              }
+            },
+            "Property": "gols_contra"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1a343fe6399dfac48199",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fJogos"
+              }
+            },
+            "Property": "resultado"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e9cc331034e158b26ce7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fJogos"
+              }
+            },
+            "Property": "tecnico"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c9f22a5560a0f080227f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fJogos"
+              }
+            },
+            "Property": "decidido_penaltis"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

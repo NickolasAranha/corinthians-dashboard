@@ -1,0 +1,385 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "v14",
+  "position": {
+    "x": 165,
+    "y": 286,
+    "z": 14,
+    "height": 200,
+    "width": 1097,
+    "tabOrder": 14
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dTecnicos"
+                    }
+                  },
+                  "Property": "tecnico"
+                }
+              },
+              "queryRef": "dTecnicos.tecnico",
+              "nativeQueryRef": "tecnico",
+              "active": true,
+              "displayName": "Técnico"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Jogos"
+                }
+              },
+              "queryRef": "_Medidas.Jogos",
+              "nativeQueryRef": "Jogos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Vitórias"
+                }
+              },
+              "queryRef": "_Medidas.Vitórias",
+              "nativeQueryRef": "Vitórias"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Empates"
+                }
+              },
+              "queryRef": "_Medidas.Empates",
+              "nativeQueryRef": "Empates"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Derrotas"
+                }
+              },
+              "queryRef": "_Medidas.Derrotas",
+              "nativeQueryRef": "Derrotas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "% Vitórias"
+                }
+              },
+              "queryRef": "_Medidas.% Vitórias",
+              "nativeQueryRef": "% Vitórias"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Aproveitamento"
+                }
+              },
+              "queryRef": "_Medidas.Aproveitamento",
+              "nativeQueryRef": "Aproveitamento"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Jogos em Casa"
+                }
+              },
+              "queryRef": "_Medidas.Jogos em Casa",
+              "nativeQueryRef": "Jogos em Casa"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Vitórias em Casa"
+                }
+              },
+              "queryRef": "_Medidas.Vitórias em Casa",
+              "nativeQueryRef": "Vitórias em Casa"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "% Vitórias em Casa"
+                }
+              },
+              "queryRef": "_Medidas.% Vitórias em Casa",
+              "nativeQueryRef": "% Vitórias em Casa"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Jogos Fora"
+                }
+              },
+              "queryRef": "_Medidas.Jogos Fora",
+              "nativeQueryRef": "Jogos Fora"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Vitórias Fora"
+                }
+              },
+              "queryRef": "_Medidas.Vitórias Fora",
+              "nativeQueryRef": "Vitórias Fora"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Empates Fora"
+                }
+              },
+              "queryRef": "_Medidas.Empates Fora",
+              "nativeQueryRef": "Empates Fora"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Derrotas Fora"
+                }
+              },
+              "queryRef": "_Medidas.Derrotas Fora",
+              "nativeQueryRef": "Derrotas Fora"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "% Vitórias Fora"
+                }
+              },
+              "queryRef": "_Medidas.% Vitórias Fora",
+              "nativeQueryRef": "% Vitórias Fora"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Gols Pró por Jogo"
+                }
+              },
+              "queryRef": "_Medidas.Gols Pró por Jogo",
+              "nativeQueryRef": "Gols Pró por Jogo"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Gols Contra por Jogo"
+                }
+              },
+              "queryRef": "_Medidas.Gols Contra por Jogo",
+              "nativeQueryRef": "Gols Contra por Jogo"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Saldo de Gols"
+                }
+              },
+              "queryRef": "_Medidas.Saldo de Gols",
+              "nativeQueryRef": "Saldo de Gols"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1A1A1A'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#6B6B6B'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'COMPARATIVO ENTRE TÉCNICOS'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1A1A1A'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
